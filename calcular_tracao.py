@@ -72,8 +72,14 @@ class CalcularTracao:
         return massa_max
     def calcular_tracao(self):
         tracao = (self.massa * (gravidade+ self.aceleracao_do_motor))/ self.secao_cabo
-        return f"T = {tracao:.2f} MPa"
+        return tracao
+    def percentual_tracao_max_atual(self):
+        tracao_atual = self.calcular_tracao()
+        tracao_maxima = self.calcular_limite()
+        percentual = (tracao_atual / tracao_maxima) * 100
+        return percentual
+
 
 calcular_tracao = CalcularTracao(diametro_tambor=113.2, diametro_cabo=4.7,resistencia_do_cabo=1370,secao_cabo=17.35,aceleracao_do_motor=10,massa=10)
-a = calcular_tracao.calcular_tracao()
-print(a)
+c = calcular_tracao.percentual_tracao_max_atual()
+print(c)
