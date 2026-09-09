@@ -3,7 +3,7 @@ import math
 gravidade = constants.g
 
 # RESISTENCIA DO CABO EM MPA, SECAO DO CABO EM MM², MASSA EM KG, ACELERACAO DO MOTOR EM M/S².
-class CalcularTracao:
+class SrElevador:
     def __init__(self, diametro_tambor, massa, aceleracao_do_motor, resistencia_do_cabo=None, secao_cabo=None, fator_de_seguranca=10, diametro_cabo=None):
         self.diametro_tambor = diametro_tambor
         self.massa = massa
@@ -79,7 +79,7 @@ class CalcularTracao:
         percentual = (tracao_atual / tracao_maxima) * 100
         return percentual
 
-
-calcular_tracao = CalcularTracao(diametro_tambor=113.2, diametro_cabo=4.7,resistencia_do_cabo=1370,secao_cabo=17.35,aceleracao_do_motor=10,massa=10)
-c = calcular_tracao.percentual_tracao_max_atual()
-print(c)
+if __name__ == '__main__':
+    calcular_tracao = SrElevador(diametro_tambor=113.2, diametro_cabo=4.7,resistencia_do_cabo=1370,secao_cabo=17.35,aceleracao_do_motor=10,massa=10)
+    c = calcular_tracao.percentual_tracao_max_atual()
+    print(c)
